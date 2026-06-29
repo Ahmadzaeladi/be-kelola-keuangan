@@ -5,8 +5,6 @@ import express from 'express';
 const router = express.Router();
 
 // Test router
-router.get('/ping', (req, res) => {
-    res.json({ message: "Router API terhubung!" });
-});
+router.use('/transactions', transactionRoutes);
 
 export default router;
