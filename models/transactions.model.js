@@ -1,12 +1,12 @@
-import {db} from '../config/db.config.js';
+import db from '../config/database.js';
 
 export const getAllTransactions = async () => {
     const [rows] = await db.execute('SELECT * FROM transactions ORDER BY transaction_date DESC');
     return rows;
 }
 
-export const getCategoryTypes = async (categoryId) => {
-    const [rows] = await db.execute('SELECT * FROM category_types WHERE category_id = ?', [categoryId]);
+export const getCategoryType = async (categoryId) => {
+    const [rows] = await db.execute('SELECT * FROM categories WHERE id = ?', [categoryId]);
     return rows.length > 0 ? rows[0].type : null;
 }
 
